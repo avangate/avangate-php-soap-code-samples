@@ -40,12 +40,12 @@ class AvangateSoapClient
         return $client->login(static::$merchantCode, static::$loginDate, static::$hash);
     }
 
-    public static function __callStatic($name, $arguments = [])
+    public static function __callStatic($name, $arguments = array())
     {
         $client = static::getClient();
 
         array_unshift($arguments, static::$sessionId);
-        $response = call_user_func_array([$client, $name], $arguments);
+        $response = call_user_func_array(array($client, $name), $arguments);
 
         return $response;
     }
@@ -53,10 +53,10 @@ class AvangateSoapClient
     protected static function getClient()
     {
         if (null === static::$client) {
-            static::$client = new \SoapClient(static::$baseUrl . "?wsdl", [
+            static::$client = new \SoapClient(static::$baseUrl . "?wsdl", array(
                 'location' => static::$baseUrl,
                 'cache_wsdl' => WSDL_CACHE_NONE,
-            ]);
+            ));
         }
 
         return static::$client;

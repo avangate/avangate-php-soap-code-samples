@@ -12,7 +12,7 @@ Client::setCredentials('APITEST', 'SECRET_KEY');
 /**
  * Prepare call
  */
-$customerObject = (object)[
+$customerObject = (object)array(
     'FirstName'   => 'John',
     'LastName'    => 'Jsonrpc',
     'Email'       => 'john.jsonrpc@avangate.com',
@@ -27,11 +27,11 @@ $customerObject = (object)[
     'State'       => 'Georgia',
     'CountryCode' => 'US',
     'Language'    => 'en'
-];
+);
 
 $addedAvangateCustomerReference = Client::createCustomer($customerObject);
 
-echo 'Customer reference: ' . $response . PHP_EOL;
+echo 'Customer reference: ' . $addedAvangateCustomerReference . PHP_EOL;
 // output:
 // Customer reference: 141589723
 

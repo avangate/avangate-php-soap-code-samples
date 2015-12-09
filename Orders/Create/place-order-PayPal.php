@@ -12,13 +12,13 @@ Client::setCredentials('APITEST', 'SECRET_KEY');
 /**
  * Prepare call - get a non-empty product code
  */
-$productListing = Client::searchProducts([
+$productListing = Client::searchProducts(array(
     'Limit' => 1,
     'Enabled' => true,
-    'Types' => [
+    'Types' => array(
         'REGULAR'
-    ]
-]);
+    )
+));
 
 if (empty($productListing)) {
     die('No enabled products were found.');
@@ -33,28 +33,28 @@ if (empty($productCode)) {
 /**
  * Prepare call - prepare order object
  */
-$order = [
-    'Items' => [
-        0 => [
+$order = array(
+    'Items' => array(
+        0 => array(
             'Code' => $productCode,
             'Quantity' => 1
-        ]
-    ],
-    'BillingDetails' => [
+        )
+    ),
+    'BillingDetails' => array(
         'FirstName' => 'John',
         'LastName' => 'Doe',
         'Email' => 'john.doe@avangate.com',
         'CountryCode' => 'RO'
-    ],
-    'PaymentDetails' => [
+    ),
+    'PaymentDetails' => array(
         'Type' => 'PAYPAL',
         'Currency' => 'EUR',
-        'PaymentMethod' => [
+        'PaymentMethod' => array(
             'Email' => 'customer@avangate.com',
             'ReturnURL' => 'http://my.implementation.dev/callback/paypalreturn'
-        ]
-    ]
-];
+        )
+    )
+);
 
 $responsePlaceOrder = Client::placeOrder($order);
 

@@ -12,13 +12,13 @@ Client::setCredentials('APITEST', 'SECRET_KEY');
 /**
  * Prepare call - get a non-empty product code
  */
-$productListing = Client::searchProducts([
+$productListing = Client::searchProducts(array(
     'Limit' => 1,
     'Enabled' => true,
-    'Types' => [
+    'Types' => array(
         'REGULAR'
-    ]
-]);
+    )
+));
 
 if (empty($productListing)) {
     die('No enabled products were found.');
@@ -33,32 +33,32 @@ if (empty($productCode)) {
 /**
  * Prepare call - prepare order object
  */
-$order = [
-    'Items' => [
-        0 => [
+$order = array(
+    'Items' => array(
+        0 => array(
             'Code' => $productCode,
             'Quantity' => 1
-        ]
-    ],
-    'BillingDetails' => [
+        )
+    ),
+    'BillingDetails' => array(
         'FirstName' => 'John',
         'LastName' => 'Doe',
         'Email' => 'john.doe@avangate.com',
         'CountryCode' => 'RO'
-    ],
-    'PaymentDetails' => [
+    ),
+    'PaymentDetails' => array(
         'Type' => 'TEST',
         'Currency' => 'EUR',
-        'PaymentMethod' => [
+        'PaymentMethod' => array(
             'CardType' => 'visa',
             'CardNumber' => '4111111111111111',
             'CCID' => '123',
             'ExpirationMonth' => '10',
             'ExpirationYear' => '2020',
             'HolderName' => 'John Doe',
-        ]
-    ]
-];
+        )
+    )
+);
 
 $responsePlaceOrder = Client::placeOrder($order);
 

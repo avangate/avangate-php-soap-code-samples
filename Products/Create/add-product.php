@@ -12,7 +12,7 @@ Client::setCredentials('APITEST', 'SECRET_KEY');
 /**
  * Prepare call
  */
-$productData = [
+$productData = array(
     'ProductCode' => 'PRODUCT_TEST_' . uniqid(),
     'ProductType' => 'REGULAR',
     'ProductName' => 'AV | Team',
@@ -24,43 +24,43 @@ $productData = [
     'LongDescription' => '',
     'SystemRequirements' => '',
     'ProductCategory' => false,
-    'Platforms' => [],
-    'ProductImages' => [],
+    'Platforms' => array(),
+    'ProductImages' => array(),
     'TrialUrl' => '',
     'TrialDescription' => '',
     'Enabled' => true,
-    'AdditionalFields' => [],
-    'Translations' => [],
-    'PricingConfigurations' => [
-        [
+    'AdditionalFields' => array(),
+    'Translations' => array(),
+    'PricingConfigurations' => array(
+        array(
             'Name' => 'AV | Price Configuration',
             'Code' => '54BCEB100D',
             'Default' => true,
-            'BillingCountries' => [],
+            'BillingCountries' => array(),
             'PricingSchema' => 'DYNAMIC',
             'PriceType' => 'NET',
             'DefaultCurrency' => 'USD',
-            'Prices' => [
-                'Regular' => [
-                    [
+            'Prices' => array(
+                'Regular' => array(
+                    array(
                         'Amount' => 39.99,
                         'Currency' => 'USD',
                         'MinQuantity' => '1',
                         'MaxQuantity' => '99999',
-                        'OptionCodes' => []
-                    ]
-                ],
-                'Renewal' => []
-            ],
-            'PriceOptions' => []
-        ]
-    ],
-    'Prices' => [],
-    'BundleProducts' => [],
+                        'OptionCodes' => array()
+                    )
+                ),
+                'Renewal' => array()
+            ),
+            'PriceOptions' => array()
+        )
+    ),
+    'Prices' => array(),
+    'BundleProducts' => array(),
     'Fulfillment' => 'BY_VENDOR',
     'GeneratesSubscription' => true,
-    'SubscriptionInformation' => [
-        'DeprecatedProducts' => [],
+    'SubscriptionInformation' => array(
+        'DeprecatedProducts' => array(),
         'BundleRenewalManagement' => 'GLOBAL',
         'BillingCycle' => '-1',
         'BillingCycleUnits' => 'M',
@@ -68,10 +68,10 @@ $productData = [
         'ContractPeriod' => null,
         'UsageBilling' => 0,
         'GracePeriod' => null,
-        'RenewalEmails' => [
+        'RenewalEmails' => array(
             'Type' => 'GLOBAL',
-            'Settings' => [
-                'ManualRenewal' => [
+            'Settings' => array(
+                'ManualRenewal' => array(
                     'Before30Days' => false,
                     'Before15Days' => false,
                     'Before7Days' => true,
@@ -79,8 +79,8 @@ $productData = [
                     'OnExpirationDate' => false,
                     'After5Days' => false,
                     'After15Days' => false
-                ],
-                'AutomaticRenewal' => [
+                ),
+                'AutomaticRenewal' => array(
                     'Before30Days' => false,
                     'Before15Days' => false,
                     'Before7Days' => true,
@@ -88,11 +88,11 @@ $productData = [
                     'OnExpirationDate' => false,
                     'After5Days' => false,
                     'After15Days' => false
-                ]
-            ]
-        ]
-    ],
-    'FulfillmentInformation' => [
+                )
+            )
+        )
+    ),
+    'FulfillmentInformation' => array(
         'IsStartAfterFulfillment' => false,
         'IsElectronicCode' => false,
         'IsDownloadLink' => false,
@@ -104,20 +104,20 @@ $productData = [
         'BackupMedia' => null,
         'ProductFile' => null,
         'AdditionalInformationByEmail' => 'install instructions',
-        'AdditionalInformationEmailTranslations' => [
-            [
+        'AdditionalInformationEmailTranslations' => array(
+            array(
                 'Name' => null,
                 'Description' => 'install instructions french',
                 'Language' => 'FR'
-            ],
-            [
+            ),
+            array(
                 'Name' => null,
                 'Description' => 'install instructions japanese',
                 'Language' => 'JA'
-            ]
-        ]
-    ]
-];
+            )
+        )
+    )
+);
 
 $responseAddProduct = Client::addProduct($productData);
 

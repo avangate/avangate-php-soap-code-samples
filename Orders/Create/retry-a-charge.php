@@ -12,21 +12,21 @@ Client::setCredentials('APITEST', 'SECRET_KEY');
 /**
  * Prepare call - prepare order object
  */
-$order = [
+$order = array(
     'RefNo' => '11331111',
-    'PaymentDetails' => [
+    'PaymentDetails' => array(
         'Type' => 'CC',
         'Currency' => 'EUR',
-        'PaymentMethod' => [
+        'PaymentMethod' => array(
             'CardType' => 'mastercard',
             'CardNumber' => '5105105105105100',
             'CCID' => '123',
             'ExpirationMonth' => '10',
             'ExpirationYear' => '2020',
             'HolderName' => 'John Doe',
-        ]
-    ]
-];
+        )
+    )
+);
 
 $responsePlaceOrder = Client::placeOrder($order);
 
