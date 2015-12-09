@@ -24,7 +24,7 @@ class AvangateSoapClient
     public static function setCredentials($code, $key)
     {
         static::$merchantCode = $code;
-        static::$loginDate = date('Y-m-d H:i:s');
+        static::$loginDate = gmdate('Y-m-d H:i:s');
         static::$hash = hash_hmac('md5', strlen($code) . $code . strlen(static::$loginDate) . static::$loginDate, $key);
         static::$sessionId = static::login();
     }
